@@ -1,0 +1,228 @@
+/* cfp-styles.css */
+:root {
+    --primary: #2563eb;
+    --secondary: #3b82f6;
+    --accent: #f59e0b;
+    --background: #f8fafc;
+    --text: #1e293b;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Styles */
+.cfp-form-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.cfp-form-group {
+    margin-bottom: 1.75rem;
+    position: relative;
+}
+
+.cfp-form-group label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.cfp-form-group input,
+.cfp-form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+}
+
+.cfp-form-group input:focus,
+.cfp-form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+.cfp-checkbox-group {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.cfp-checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 0.75rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.cfp-checkbox-group label:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Results Section */
+.cfp-results {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.cfp-summary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    transform: scale(0.95);
+    animation: scaleUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes scaleUp {
+    to { transform: scale(1); }
+}
+
+.cfp-meal-plan {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.cfp-meal-card {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cfp-meal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.cfp-meal-card:hover {
+    transform: translateY(-5px);
+}
+
+.cfp-meal-card:hover::before {
+    transform: scaleX(1);
+}
+
+.cfp-macros {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.cfp-workout-plan ul {
+    padding-left: 1.5rem;
+    list-style: none;
+}
+
+.cfp-workout-plan li {
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cfp-workout-plan li::before {
+    content: '🏋️';
+    margin-right: 1rem;
+}
+
+.cfp-workout-plan li:hover {
+    transform: translateX(10px);
+    background: #f8fafc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cfp-form-container {
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+    
+    .cfp-results {
+        padding: 1.5rem;
+        border-radius: 1rem;
+    }
+    
+    .cfp-summary {
+        padding: 1.5rem;
+    }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
